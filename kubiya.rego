@@ -10,12 +10,6 @@ allow {
     tool := input.tool.name
 }
 
-# Allow kubiyamg@gmail.com access to all tools except cluster_health
-allow {
-    tool := input.tool.name
-    input.user.email == "kubiyamg@gmail.com"
-}
-
 # Always allow access to request_tool_access
 allow {
     input.tool.name == "request_tool_access"
