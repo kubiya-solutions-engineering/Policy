@@ -27,6 +27,24 @@ allow {
     tool == "list_active_access_requests"
 }
 
+# Always allow access to request_tool_access
+allow {
+    tool := input.tool.name
+    tool == "jit_session_grant_view_access_to_march17test2"
+}
+
+# Always allow access to request_tool_access
+allow {
+    tool := input.tool.name
+    tool == "jit_session_grant_view_access_to_kubiyamichaelg"
+}
+
+# Always allow access to request_tool_access
+allow {
+    tool := input.tool.name
+    tool == "jit_session_grant_veranatest_access_to_kubiyamichaelg"
+}
+
 # Allow solution-engineer team access to run approve tool
 allow {
     group := input.user.groups[_]
