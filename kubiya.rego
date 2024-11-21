@@ -1,7 +1,7 @@
 package kubiya.tool_manager
 
 # Default deny all access
-default allow = false
+default allow = true
 
 # Allow solution-engineer team access to all tools except cluster_health
 allow {
