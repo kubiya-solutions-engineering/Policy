@@ -9,6 +9,12 @@ allow {
     tool == "request_tool_access"
 }
 
+# Always allow access to request_tool_access
+allow {
+    tool := input.tool.name
+    tool == "describe_access_request"
+}
+
 # Allow solution-engineer team access to run approve tool
 allow {
     group := input.user.groups[_]
