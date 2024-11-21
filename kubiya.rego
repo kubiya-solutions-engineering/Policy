@@ -5,5 +5,14 @@ default allow = false
 
 # Always allow access to request_tool_access
 allow {
-    input.tool.name == "request_tool_access"
+    tool := input.tool.name
+    tool == "request_tool_access"
+}
+
+# Allow solution-engineer team access to run approve tool
+allow {
+    group := input.user.groups[_]
+    group == "solution-engineer"
+    tool := input.tool.name
+    tool == "approve_tool_access_request"
 }
