@@ -1,7 +1,7 @@
 package kubiya.tool_manager
 
 # Default deny all access
-default allow = false
+default allow = true
 
 # Always allow access to request_tool_access
 allow {
