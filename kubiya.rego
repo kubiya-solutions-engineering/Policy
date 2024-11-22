@@ -40,3 +40,11 @@ allow {
     tool := input.tool.name
     tool == "approve_tool_access_request"
 }
+
+# Allow solution-engineer team access to github pipeline diagnostic
+allow {
+    group := input.user.groups[_]
+    group == "solution-engineer"
+    tool := input.tool.name
+    tool == "github_pipeline_diagnostic"
+}
