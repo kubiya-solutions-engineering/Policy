@@ -15,5 +15,6 @@ allow {
 # Allow "solution-engineer" group to run the "approve_tool_access_request" tool
 allow {
     input.tool.name == "approve_tool_access_request"
+    or input.tool.name == "github_pipeline_diagnostic"
     "solution-engineer" in input.user.groups
 }
