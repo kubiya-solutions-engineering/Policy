@@ -3,48 +3,26 @@ package kubiya.tool_manager
 # Default deny all access
 default allow = false
 
-# Always allow access to request_tool_access
-allow {
-    tool := input.tool.name
-    tool == "request_tool_access"
+# Tools that are always accessible
+always_allowed_tools := {
+    "request_tool_access",
+    "describe_access_request",
+    "search_access_requests",
+    "list_active_access_requests",
+    "github_pipeline_diagnostic"
+    "cluster_health"
 }
 
-# Always allow access to request_tool_access
+# Allow access to always accessible tools
 allow {
     tool := input.tool.name
-    tool == "describe_access_request"
+    tool in always_allowed_tools
 }
 
-# Always allow access to request_tool_access
-allow {
-    tool := input.tool.name
-    tool == "search_access_requests"
-}
-
-# Always allow access to request_tool_access
-allow {
-    tool := input.tool.name
-    tool == "list_active_access_requests"
-}
-
-# Always allow access to request_tool_access
-allow {
-    tool := input.tool.name
-    tool == "github_pipeline_diagnostic"
-}
-
-# Allow solution-engineer team access to run approve tool
+# Allow solution-engineer team specific tool access
 allow {
     group := input.user.groups[_]
     group == "solution-engineer"
     tool := input.tool.name
-    tool == "approve_tool_access_request"
-}
-
-# Allow solution-engineer team access to github pipeline diagnostic
-allow {
-    group := input.user.groups[_]
-    group == "solution-engineer"
-    tool := input.tool.name
-    tool == "github_pipeline_diagnostic"
+    tool in {"approve_tool_access_request"}
 }
