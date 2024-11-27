@@ -4,13 +4,15 @@ package kubiya.tool_manager
 default allow = false
 
 allow {
+    input.tool.name == "request_tool_access" 
+    or input.tool.name == "describe_access_request" 
+    or input.tool.name == "search_access_requests" 
+    or input.tool.name == "list_active_access_requests" 
+    or input.tool.name == "github_pipeline_diagnostic" 
+    or input.tool.name == "cluster_health"
+}
+allow {
     group := input.user.groups[_]
     group == "solution-engineer"
-    tool := input.tool.name
-    tool == "approve_tool_access_request"
-}
-
-# Always allow access to request_tool_access
-allow {
-    input.tool.name == "request_tool_access"
+    input.tool.name == "approve_tool_access_request"
 }
