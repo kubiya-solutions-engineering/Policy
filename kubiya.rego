@@ -9,7 +9,7 @@ always_allowed_tools := {
     "describe_access_request",
     "search_access_requests",
     "list_active_access_requests",
-    "github_pipeline_diagnostic"
+    "github_pipeline_diagnostic",
     "cluster_health"
 }
 
