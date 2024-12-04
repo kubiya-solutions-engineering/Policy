@@ -5,7 +5,8 @@ default allow = false
 admin_only_functions = {
     "list_active_access_requests",
     "search_access_requests",
-    "approve_tool_access_request"
+    "approve_tool_access_request",
+    "store_request"
 }
 
 # List of restricted tools (nobody can run these)
